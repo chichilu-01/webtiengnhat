@@ -3,41 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <title>HỌC TIẾNG NHẬT</title>
-    <link rel="icon" href="book.ico">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="icons/book.ico">
+    <link rel="stylesheet" href="css/style.css"> <!-- Đường dẫn đến file CSS -->
+    <!-- Thêm vào trong <head> của HTML -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Video nền -->
+    <video class="video-background" autoplay muted loop>
+        <source src="videos/videonen.mp4" type="video/mp4">
+        Trình duyệt của bạn không hỗ trợ video.
+    </video>
+    
 
+<!-- Tiêu đề đầu trang -->
 <header>今日はあなたが何を勉強したい？</header>
 
 <main>
+    <!-- Nút chọn cấp độ học -->
     <div class="wrapper" title="大吉だといいね～">
         <p id="btn1">TIẾNG NHẬT N1</p>
     </div>
 
+    <!-- Khối chứa bảng từ vựng -->
     <div class="bangtiengnhat">
         <h1 class="banghienthi">BẢNG TIẾNG NHẬT</h1>
+
+        <!-- Ô tìm kiếm -->
         <input type="text" id="searchInput" placeholder="Nhập từ khóa để tìm..." style="margin: 20px 0; padding: 10px; width: 50%; font-size: 16px;">
+
+        <!-- Bảng từ vựng -->
         <table>
             <thead>
                 <tr id="tencot">
-                    <th>STT</th>
-                    <th>HIRAGANA</th>
-                    <th>ÂM HÁN VIỆT</th>
-                    <th>NGHĨA</th>
+                    <th>STT</th>              <!-- Số thứ tự -->
+                    <th>HIRAGANA</th>        <!-- Cột Hiragana (click để đổi Kanji) -->
+                    <th>ÂM HÁN VIỆT</th>     <!-- Cột Hán Việt -->
+                    <th>NGHĨA</th>           <!-- Cột nghĩa tiếng Việt -->
                 </tr>
             </thead>
             <tbody id="vocabBody">
-                //trinh chieu bang tieng nhat
+                <!-- Các dòng dữ liệu từ vựng sẽ được chèn vào đây bằng JavaScript -->
             </tbody>
         </table>
+
+        <!-- Phân trang sẽ hiển thị ở đây -->
+        <div id="pagination" style="text-align:center; margin-top: 20px;"></div>
     </div>
 </main>
 
+<!-- Footer cuối trang -->
 <footer>
     <p>Copyright © 2025 Hoang Minh Phuong</p>
 </footer>
 
+<!-- Import mã JavaScript dạng module -->
 <script type="module" src="js/script.js"></script>
 </body>
 </html>

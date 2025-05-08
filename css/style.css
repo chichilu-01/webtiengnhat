@@ -1,54 +1,105 @@
-/* tiengnhat.css */
+:root {
+    --primary-color: #0077cc;
+    --hover-color: #005fa3;
+    --active-color: #004c87;
+    --background: #f4f6f9;
+    --table-header: #eaf2fb;
+}
 
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    padding: 20px;
-    background-color: #f9f9f9;
+html, body {
+    font-family: 'Noto Sans', sans-serif;
     margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+    line-height: 1.6;
+    position: relative;
+}
+
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 1;
 }
 
 header {
     text-align: center;
     font-size: 24px;
     margin-bottom: 20px;
+    color: white;
+    z-index: 2;
+    position: relative;
 }
 
 .wrapper {
     text-align: center;
     margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
 }
 
 #btn1 {
-    background-color: #0077cc;
+    background-color: var(--primary-color);
     color: #fff;
     padding: 10px 20px;
-    border-radius: 5px;
-    display: inline-block;
+    border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 #btn1:hover {
-    background-color: #005fa3;
+    background-color: var(--hover-color);
 }
 
 .bangtiengnhat {
     max-width: 1000px;
     margin: 0 auto;
-    padding: 0 10px;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .banghienthi {
     text-align: center;
     margin-bottom: 20px;
+    color: #fff;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+#searchInput:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0,119,204,0.2);
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.5);
     overflow-x: auto;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
 th, td {
@@ -56,45 +107,88 @@ th, td {
     padding: 10px;
     text-align: center;
     font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
 th {
-    background-color: #f2f2f2;
+    background-color: var(--table-header);
 }
 
 td.hiragana {
     cursor: pointer;
-    color: #0077cc;
+    color: var(--primary-color);
     font-weight: bold;
 }
 
-/* Highlight dòng khi hover + hiệu ứng */
 table tbody tr {
     transition: all 0.3s ease;
 }
 
 table tbody tr:hover {
-    background-color: #e0f7fa;
+    background-color: rgba(224, 247, 250, 0.6);
     transform: scale(1.02);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    margin-top: 30px;
-    font-size: 14px;
-    color: #666;
+td.hiragana:hover {
+    background-color: rgba(0, 119, 204, 0.1);
+    transform: scale(1.05);
+    transition: all 0.2s ease;
 }
 
-/* Responsive cho mobile */
+#pagination {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+#pagination button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#pagination button:hover {
+    background-color: var(--hover-color);
+    transform: scale(1.05);
+}
+
+#pagination button[style*="font-weight:bold"] {
+    background-color: var(--active-color);
+    font-weight: bold;
+    border: 2px solid #003e6b;
+}
+
 @media (max-width: 600px) {
     th, td {
         padding: 8px;
         font-size: 14px;
     }
 
-    #searchInput {
-        width: 100%;
+    #pagination {
+        flex-direction: column;
+        align-items: center;
     }
+
+    #pagination button {
+        width: 100%;
+        max-width: 150px;
+    }
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    color: #eee;
+    z-index: 2;
+    position: relative;
 }
